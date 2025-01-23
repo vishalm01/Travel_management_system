@@ -1,0 +1,134 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', Arial, sans-serif; /* Google's signature font */
+    background-color: #f5f5f5; /* Light grey for a clean background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #202124; /* Dark grey text color */
+}
+
+/* Container */
+.container {
+    width: 800px;
+    height: 450px;
+    display: flex;
+    background-color: #ffffff; /* White background for contrast */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    overflow: hidden;
+}
+
+/* Left and Right Panels */
+.left-panel, .right-panel {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-panel {
+    border-right: 1px solid #e0e0e0; /* Subtle divider */
+}
+
+/* Headings */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #202124; /* Dark grey for headers */
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 1px solid #dadce0; /* Light grey border */
+    border-radius: 4px; /* Subtle rounding */
+    background: #ffffff;
+    color: #202124;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #4285f4; /* Google blue for focus */
+    box-shadow: 0 0 4px rgba(66, 133, 244, 0.4); /* Subtle blue glow */
+}
+
+label {
+    font-size: 0.9rem;
+    color: #5f6368; /* Medium grey for labels */
+}
+
+/* Button Styling */
+button {
+    background-color: #4285f4; /* Google blue for buttons */
+    color: #ffffff; /* White text for contrast */
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3367d6; /* Slightly darker blue on hover */
+}
+
+/* Link Styling */
+a {
+    text-decoration: none;
+    color: #4285f4; /* Google blue for links */
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #3367d6; /* Darker blue on hover */
+}
+
+/* Informational Text */
+.info {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #5f6368; /* Medium grey for secondary text */
+}
+
+/* Branding Styles */
+.brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #202124;
+    text-align: center;
+}
+
+.brand-desc {
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #5f6368; /* Subtle grey for description */
+}
+
+.right-panel .brand {
+    color: #4285f4; /* Accent color for branding */
+}
