@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Management System</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, button {
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Travel Booking</h2>
+        
+        <label for="username">Traveler Name:</label>
+        <input type="text" id="username" readonly value="VISHAL" onfocus="alert('Username is read-only!')">
+
+        <label for="location">Select Destination:</label>
+        <select id="location" onchange="updateSummary()">
+            <option value="Paris">Paris</option>
+            <option value="New York">New York</option>
+            <option value="Tokyo">Tokyo</option>
+        </select>
+
+        <label for="members">No. of Travelers:</label>
+        <input type="number" id="members" min="1" max="10" onkeyup="updateSummary()">
+
+        <label for="checkin">Check-in Date:</label>
+        <input type="date" id="checkin" onchange="updateSummary()">
+
+        <label for="checkout">Check-out Date:</label>
+        <input type="date" id="checkout" onchange="updateSummary()">
+
+        <h3>Tour Guide</h3>
+        <button ondblclick="selectChaperon()">Double Click to Assign Guide</button>
+        <p id="guide"></p>
+
+        <h3>Booking Summary</h3>
+        <p id="summary"></p>
+
+        <button onclick="refreshPage()">Refresh</button>
+    </div>
+
+    <script>
+        function updateSummary() {
+            let location = document.getElementById("location").value;
+            let members = document.getElementById("members").value;
+            let checkin = document.getElementById("checkin").value;
+            let checkout = document.getElementById("checkout").value;
+
+            document.getElementById("summary").innerText = 
+            `Location: ${location}, Travelers: ${members}, Check-in: ${checkin}, Check-out: ${checkout}`;
+        }
+
+        function selectChaperon() {
+            let guides = ["John", "Emma", "Carlos", "Aisha"];
+            let guide = guides[Math.floor(Math.random() * guides.length)];
+            document.getElementById("guide").innerText = "Assigned Guide: " + guide;
+        }
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        document.getElementById("summary").addEventListener("mouseover", function () {
+            this.style.color = "blue";
+        });
+
+        document.getElementById("summary").addEventListener("mouseout", function () {
+            this.style.color = "black";
+        });
+
+        document.body.addEventListener("click", function (event) {
+            console.log("Clicked:", event.target.tagName);
+        }, true); // Capturing phase
+
+        document.body.addEventListener("click", function (event) {
+            console.log("Bubbling:", event.target.tagName);
+        }, false); // Bubbling phase
+    </script>
+
+</body>
+</html>

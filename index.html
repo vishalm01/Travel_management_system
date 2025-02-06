@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Travel Connect</title>
+    <link rel="stylesheet" href="exp1.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h2>Welcome, <span id="username"></span></h2>
+            <p>Email: <span id="email"></span></p>
+            <p>Password: <span id="password"></span></p>
+            <button onclick="logout()">Logout</button>
+        </div>
+        <div class="right-panel">
+            <div class="brand">Travel Connect</div>
+            <div class="brand-desc">Your personalized travel guide experience.</div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let storedUser = JSON.parse(localStorage.getItem("user"));
+            if (storedUser) {
+                document.getElementById("username").innerText = storedUser.username;
+                document.getElementById("email").innerText = storedUser.email;
+                document.getElementById("password").innerText = storedUser.password;
+            } else {
+                window.location.href = "exp1login.html";
+            }
+        });
+        function logout() {
+            localStorage.removeItem("loggedIn");
+            window.location.href = "exp1login.html";
+        }
+    </script>
+</body>
+</html>

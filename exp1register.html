@@ -10,7 +10,7 @@
     <div class="container">
         <div class="left-panel">
             <h2>Register</h2>
-            <form action="#">
+            <form onsubmit="registerUser(event)">
                 <div class="input-box">
                     <input type="text" id="username" required>
                     <label for="username">Username</label>
@@ -34,5 +34,18 @@
             <div class="brand-desc">Join the platform connecting travelers to guides.</div>
         </div>
     </div>
+    <script>
+        function registerUser(event) {
+            event.preventDefault();
+            let userData = {
+                username: document.getElementById("username").value,
+                password: document.getElementById("password").value,
+                email: document.getElementById("email").value
+            };
+            localStorage.setItem("user", JSON.stringify(userData));
+            alert("Registration successful!");
+            window.location.href = "exp1login.html";
+        }
+    </script>
 </body>
 </html>
